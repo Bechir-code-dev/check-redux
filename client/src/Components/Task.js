@@ -46,8 +46,10 @@ const Task = ({ id, description, isDone }) => {
     dispatch(doing(id));
   };
   // we move to return
-  const editTask=()=> {
+  const editTask=(e)=> {
+    e.preventDefault();
     dispatch(editing(id, newDescription))
+    closeModal();
     }
   return (
     <>

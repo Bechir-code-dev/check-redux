@@ -4,7 +4,8 @@ import Task from "./Task";
 import { filtering } from "../redux/actions";
 
 const ListTask = () => {
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state) => state.tasks) || [];
+  console.log(tasks);
   const dispatch=useDispatch()
 const filteringTasks =()=> {
 dispatch(filtering())
@@ -15,6 +16,7 @@ dispatch(filtering())
       {tasks.map((Element) => (
         <Task {...Element} />
       ))}
+      <br/>
           <button onClick={filteringTasks}>filter</button>
 
     </>
